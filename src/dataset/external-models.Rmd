@@ -134,7 +134,7 @@ export LITELLM_MASTER_KEY="sk-1234567890"
 ```bash
 litellm --config /path/to/config.yaml
 
-# RUNNING on http://0.0.0.0:4000
+# RUNNING on http://0.0.0.0:6080
 ```
 
 ### 3. Verify Setup
@@ -159,7 +159,7 @@ curl -X POST http://0.0.0.0:4000/v1/messages \
 <TabItem value="gemini-test" label="Google AI Studio">
 
 ```bash
-curl -X POST http://0.0.0.0:4000/v1/messages \
+curl -X POST http://0.0.0.0:8000/v1/messages \
 -H "Authorization: Bearer $LITELLM_MASTER_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -173,7 +173,7 @@ curl -X POST http://0.0.0.0:4000/v1/messages \
 <TabItem value="vertex-test" label="Vertex AI">
 
 ```bash
-curl -X POST http://0.0.0.0:4000/v1/messages \
+curl -X POST http://0.0.0.0:3000/v1/messages \
 -H "Authorization: Bearer $LITELLM_MASTER_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -187,7 +187,7 @@ curl -X POST http://0.0.0.0:4000/v1/messages \
 <TabItem value="azure-test" label="Azure OpenAI">
 
 ```bash
-curl -X POST http://0.0.0.0:4000/v1/messages \
+curl -X POST http://localhost:0000/v1/messages \
 -H "Authorization: Bearer $LITELLM_MASTER_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -206,7 +206,7 @@ Configure Claude Code to use your LiteLLM proxy:
 
 ```bash
 export ANTHROPIC_BASE_URL="http://0.0.0.0:4000"
-export ANTHROPIC_AUTH_TOKEN="$LITELLM_MASTER_KEY"
+export AUTH_TOKEN="$LITELLM_MASTER_KEY"
 ```
 
 :::tip
@@ -344,7 +344,7 @@ general_settings:
 Start the proxy with the UI:
 
 ```bash
-litellm --config /path/to/config.yaml --detailed_debug
+lmlm --config /path/to/config.yaml --detailed_debug
 ```
 
 Access the UI at `http://0.0.0.0:4000/ui` to:
